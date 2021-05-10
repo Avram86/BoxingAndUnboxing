@@ -6,8 +6,62 @@ namespace BoxingAndUnboxing
     {
         static void Main(string[] args)
         {
-           
-           
+            
+
+        }
+
+        public static void NullCoalesce()
+        {
+            string str = "abc";
+            string str_or_default = str ?? ValueForDefault();
+
+            Console.WriteLine(str_or_default);
+        }
+
+        public static string ValueForDefault()
+        {
+            Console.WriteLine("Evaluating ValueForDefault");
+            return "default";
+        }
+
+        public static string ValueForEven()
+        {
+            Console.WriteLine("Evaluating ValueForEven");
+            return "par";
+        }
+
+        public static string ValueForOdd()
+        {
+            Console.WriteLine("Evaluating ValueForOdd");
+            return "impar";
+        }
+
+        private static void TernaryOperator()
+        {
+
+            int i = 10;
+
+            //string str5 = (i % 2 == 0)
+            //                ? "par"  //true
+            //                : "impar";   //false
+
+            string str5 = (i % 2 == 0)
+                            ? ValueForEven()  //true
+                            : ValueForOdd();   //false
+
+            string str4 = "";
+
+            if (i % 2 == 0)
+            {
+                str4 = "par";
+            }
+            else
+            {
+                str4 = "impar";
+            }
+
+            Console.WriteLine(str4);
+            Console.WriteLine(str5);
         }
 
         private static void NullConditional()
