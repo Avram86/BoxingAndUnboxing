@@ -6,6 +6,75 @@ namespace BoxingAndUnboxing
     {
         static void Main(string[] args)
         {
+           
+           
+        }
+
+        private static void NullConditional()
+        {
+            string[] array = null;
+            string element = array?[2];
+
+            //operatorul AS face conversie de tip
+
+            //is returneaza un boolean
+            if (element is null)
+            {
+                Console.WriteLine("element is null");
+            }
+            else
+            {
+                Console.WriteLine($"{element}");
+            }
+
+
+            string str = null;
+            string str2 = str?.Replace("abc", "def");
+
+            //testeaza egalitatea a doua adrese
+            //if (object.ReferenceEquals(str2, null))
+            if (str2 is null)
+            {
+                Console.WriteLine("str2 is null");
+
+            }
+            else
+            {
+                Console.WriteLine(str2);
+            }
+        }
+        private static void IsandAS()
+        {
+            string str3 = null;
+            object obj = str3;
+
+            bool isString = obj is string;
+            string unboxedClasic = (string)obj;
+            //se prefera conversia AS pt ca e mai safe, returneaza null daca nu merge conversia
+            string unboxed = obj as string;
+
+            if (obj is int unboxedInt)
+            {
+                Console.WriteLine(unboxedInt);
+            }
+            else
+            {
+                Console.WriteLine("obj is not an int");
+            }
+
+            Console.WriteLine(isString);
+            if (unboxed is null)
+            {
+                Console.WriteLine("unboxed is null");
+            }
+            else
+            {
+                Console.WriteLine(unboxed);
+            }
+        }
+
+        private static void BoxingAndUnboxing() 
+        {
             //int x = 200;
             //object z = x;
             //long y = (long)z;
@@ -38,6 +107,7 @@ namespace BoxingAndUnboxing
             //  c)alocare memorie pt var o2
             //  d) in casuta de memorie a lui o1 se copiaza adresa de la a)
             object o2 = s;
+
 
             Console.WriteLine($"i={i}");
             Console.WriteLine($"o1AsInt={o1AsInt}");
